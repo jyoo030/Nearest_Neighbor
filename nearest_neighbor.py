@@ -41,14 +41,14 @@ def dist(p1, p2):
 
 #Brute force version of the nearest neighbor algorithm, O(n**2)
 def brute_force_nearest_neighbor(points):
-    start_time = time.time()
+    start_time = time.clock()
     min_distance=-1
     for i in range (0, len(points) - 1):
         for j in range (i+1, len(points)):
             d = dist(points[i], points[j])
             if (min_distance == -1) or (min_distance > d):
                 min_distance = d
-    print("--- %s seconds ---" % (time.time() - start_time))
+    print("--- %s seconds ---" % (time.clock() - start_time))
     return min_distance
 
 def read_file(filename):
