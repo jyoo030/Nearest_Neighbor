@@ -1,6 +1,7 @@
 import sys
 from math import sqrt
 import re
+import time
 
 pointRE=re.compile("(-?\\d+.?\\d*)\\s(-?\\d+.?\\d*)")
 def merge(left, right, v):
@@ -72,13 +73,15 @@ def nearest_neighbor(points):
 
 #Brute force version of the nearest neighbor algorithm, O(n**2)
 def brute_force_nearest_neighbor(points):
+    start_time = time.time()
     min_distance=-1
     for i in range (0, len(points) - 1):
         for j in range (i+1, len(points)):
             d = dist(points[i], points[j])
             if (min_distance == -1) or (min_distance > d):
                 min_distance = d
-    return min_distance
+   print("--- %s seconds ---" % (time.time() - start_time))
+   return min_distance
 
 def read_file(filename):
     points=[]
@@ -94,7 +97,6 @@ def read_file(filename):
             x = float(point_match.group(1))
             y = float(point_match.group(2))
             points.append((x,y))
-    print(points)
     return points
 
 def main(filename,algorithm):
