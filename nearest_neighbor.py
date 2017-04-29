@@ -46,7 +46,6 @@ def brute_force_nearest_neighbor(points):
             d = dist(points[i], points[j])
             if (min_distance == -1) or (min_distance > d):
                 min_distance = d
-    print(min_distance)
     return min_distance
 
 def read_file(filename):
