@@ -30,13 +30,14 @@ def mergeSort(points):
 def dist(p1, p2):
     return sqrt(pow(p1[0]-p2[0],2) + pow(p1[1]-p2[1],2))
 
-# def nearest_neighbor_recursion(points):
-#     min_distance=0
-#     return min_distance
-#
-# #Run the divide-and-conquor nearest neighbor
-# def nearest_neighbor(points):
-#     return nearest_neighbor_recursion(points)
+def nearest_neighbor_recursion(points):
+     min_distance=0
+     return min_distance
+
+#Run the divide-and-conquor nearest neighbor
+def nearest_neighbor(points):
+    points = mergeSort(points) 
+    return nearest_neighbor_recursion(points)
 
 #Brute force version of the nearest neighbor algorithm, O(n**2)
 def brute_force_nearest_neighbor(points):
@@ -63,8 +64,6 @@ def read_file(filename):
             x = float(point_match.group(1))
             y = float(point_match.group(2))
             points.append((x,y))
-    print(points)
-    points = mergeSort(points)
     print(points)
     return points
 
