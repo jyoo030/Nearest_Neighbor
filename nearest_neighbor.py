@@ -80,13 +80,8 @@ def brute_force_nearest_neighbor(points):
             d = dist(points[i], points[j])
             if (min_distance == -1) or (min_distance > d):
                 min_distance = d
-<<<<<<< HEAD
     print("--- %s seconds ---" % (time.clock() - start_time))
     return min_distance
-=======
-   print("--- %s seconds ---" % (time.time() - start_time))
-   return min_distance
->>>>>>> origin/master
 
 def read_file(filename):
     points=[]
