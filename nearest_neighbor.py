@@ -64,6 +64,8 @@ def read_file(filename):
             y = float(point_match.group(2))
             points.append((x,y))
     print(points)
+    points = mergeSort(points)
+    print(points)
     return points
 
 def main(filename,algorithm):
