@@ -3,6 +3,29 @@ from math import sqrt
 import re
 
 pointRE=re.compile("(-?\\d+.?\\d*)\\s(-?\\d+.?\\d*)")
+def merge(left, right):
+	result = []
+	i, j = 0, 0
+	while (len(result) < len(left) + len(right)):
+		if left[i][0] < right[j][0]:
+			result.append(left[i])
+			i+= 1
+		else:
+			result.append(right[j])
+			j+= 1
+		if i == len(left) or j == len(right):
+			result.extend(left[i:] or right[j:])
+			break
+	return result
+
+def mergeSort(points):
+    if len(points) < 2:
+        return points
+
+    m = int(len(points)/2)
+    left = mergeSort(points[:m])
+    right = mergeSort(points[m:])
+    return merge(left, right)
 
 def dist(p1, p2):
     return sqrt(pow(p1[0]-p2[0],2) + pow(p1[1]-p2[1],2))
