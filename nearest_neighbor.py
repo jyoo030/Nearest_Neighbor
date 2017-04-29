@@ -7,6 +7,14 @@ pointRE=re.compile("(-?\\d+.?\\d*)\\s(-?\\d+.?\\d*)")
 def dist(p1, p2):
     return sqrt(pow(p1[0]-p2[0],2) + pow(p1[1]-p2[1],2))
 
+# def nearest_neighbor_recursion(points):
+#     min_distance=0
+#     return min_distance
+#
+# #Run the divide-and-conquor nearest neighbor
+# def nearest_neighbor(points):
+#     return nearest_neighbor_recursion(points)
+
 #Brute force version of the nearest neighbor algorithm, O(n**2)
 def brute_force_nearest_neighbor(points):
     min_distance=-1
